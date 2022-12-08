@@ -11,7 +11,6 @@ class Solution {
             if (rec == s.charAt(i)){
                 leftCount++;                
                 if (i == len-1) answer++;
-                if (i == len-1 && rightCount == 0 && answer == 0) answer = 1;
             }
             else {
                 rightCount++;
@@ -27,6 +26,6 @@ class Solution {
                 }
             }
         }
-        return answer;
+        return answer = (len > 0 && answer == 0) ? 1 : answer;
     }
 }
