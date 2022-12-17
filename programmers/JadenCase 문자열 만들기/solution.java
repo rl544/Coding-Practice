@@ -8,9 +8,7 @@ class Solution {
             if(i==0||index==0&&ss[i]!=' ') ss[i] = Character.toUpperCase(ss[i]);
             else ss[i] = Character.toLowerCase(ss[i]);
             if(ss[i]==' ') index=0;
-            else {
-                index++;
-            }
+            else index++;
         }
         return String.valueOf(ss);
     }
