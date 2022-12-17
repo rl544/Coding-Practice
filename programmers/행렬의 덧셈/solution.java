@@ -5,7 +5,7 @@ class Solution {
         int[][] answer = arr1;
         for(int a = 0; a < arr1.length; a++){
             for(int b = 0; b < arr1[0].length; b++){
-                answer[a][b]=arr1[a][b]+arr2[a][b];
+                answer[a][b]+=arr2[a][b];
             }
         }
         return answer;
