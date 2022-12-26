@@ -16,38 +16,28 @@ class Solution {
                 continue;
             }
             while(cc==false){
-                // for(int a = 1; a <= cacheSize; a ++){
-                //     if(hs.get(a) == null) {
-                        int bcon = 0;
-                        for(int cs = 1; cs <= Math.min(cacheSize, aIdx); cs ++){
-                            if(hs.getOrDefault(hsA[aIdx-cs],"").equals(c)){
-                                int x = hsA[aIdx-cs];
-                                hs.put(x,c);
-                                hss.put(x,aIdx);
-                                for(int cb = aIdx-cs; cb > Math.max(aIdx - cacheSize,0); cb--){
-                                    // hss.put(hsA[cb-1],cb);
-                                    hsA[cb]=hsA[cb-1];
-                                }
-                                
-                // System.out.println(aIdx+" "+x+" 초기중복");
-                                hsA[aIdx++]=x;
-                                answer += hit;
-                                bcon = 1;
-                                // oa--;
-                                break;
-                            }
-                        }
-                        if(bcon != 0) break;
-                        ccon = oa;
-                        hs.put(oa,c);
-                        hss.put(oa,aIdx);
-                // System.out.println(aIdx+" "+oa+" 최초키입력");
-                        hsA[aIdx++]=oa;
-                        answer += miss;
-                        if(oa++==cacheSize) cc = true;
+                int bcon = 0;
+                for(int cs = 1; cs <= Math.min(cacheSize, aIdx); cs ++){
+                    if(hs.getOrDefault(hsA[aIdx-cs],"").equals(c)){
+                        int x = hsA[aIdx-cs];
+                        hs.put(x,c);
+                        hss.put(x,aIdx);
+                        for(int cb = aIdx-cs; cb > Math.max(aIdx - cacheSize,0); cb--)
+                            hsA[cb]=hsA[cb-1];
+                        hsA[aIdx++]=x;
+                        answer += hit;
+                        bcon = 1;
                         break;
-                //     }
-                // } // aIdx > cacheSize-1
+                    }
+                }
+                if(bcon != 0) break;
+                ccon = oa;
+                hs.put(oa,c);
+                hss.put(oa,aIdx);
+                hsA[aIdx++]=oa;
+                answer += miss;
+                if(oa++==cacheSize) cc = true;
+                        break;
             }
             if(ccon == 0 && cc){
                 int con = 0;
@@ -74,15 +64,11 @@ class Solution {
                             min = Math.min(hss.get(a),min);
                             mina = a;
                         }
-                    }       //     - for
-                    // if(hss.get(a)==aIdx-cacheSize){
-                        hs.put(mina,c);
-                        hss.put(mina,aIdx);
-                        // System.out.println(aIdx+" "+mina+" 교체");
-                        hsA[aIdx++]=mina;
-                        answer += miss;
-                        // break;
-                    // }
+                    }
+                    hs.put(mina,c);
+                    hss.put(mina,aIdx);
+                    hsA[aIdx++]=mina;
+                    answer += miss;
                 }           // if not matched
             }               // if Last
         }                   //Main for
