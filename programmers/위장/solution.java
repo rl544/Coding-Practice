@@ -1,8 +1,6 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/42578
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.ArrayList;
 class Solution {
     public int solution(String[][] clothes) {
         int answer = 1;
