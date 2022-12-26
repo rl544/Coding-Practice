@@ -6,11 +6,11 @@ class Solution {
         boolean answer = true;
         Arrays.sort(pb);
         for(int a = 0; a < pb.length; a++){
-            for(int b = a+1; b < a+2; b++){
+            for(int b = a+1; b < a+pb.length; b++){
                 if(pb[b%pb.length].replaceAll(pb[a],"s").matches("^s.+")){
                     answer = false;
                     break;
-                }
+                } else break;
             }
             if(answer == false){
                 break;
