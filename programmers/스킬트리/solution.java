@@ -5,9 +5,7 @@ class Solution {
     public int solution(String skill, String[] skill_trees) {
         int answer = 0;
         StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
         StringBuilder sb3 = new StringBuilder();
-        String[] sa = new String[skill.length()];
         sb3.append("[^(");
         
             for(int bb = 0; bb < skill.length(); bb++){
