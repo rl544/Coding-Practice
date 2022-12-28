@@ -1,8 +1,6 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/43165
 
-import java.util.List;
 import java.util.Arrays;
-import java.util.ArrayList;
 class Solution {
     //DFS
     private int dfs(int[] numbers, int target, int depth){
