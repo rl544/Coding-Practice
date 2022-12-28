@@ -1,23 +1,24 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/43165
 
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
 class Solution {
-    //BFS
+    //DFS
+    private int dfs(int[] numbers, int target, int depth){
+        int res = 0;
+        if(depth == numbers.length){
+            // System.out.println(Arrays.toString(numbers));
+            if(Arrays.stream(numbers).sum() == target) return 1;
+            else return 0;
+        } else{
+            res += dfs(numbers, target, depth+1);
+            numbers[depth] *= -1;
+            res += dfs(numbers, target, depth+1);
+            return res;
+        }
+    }
     public int solution(int[] numbers, int target) {
-        int answer = 0;
-        List<Integer> leaves = List.of(0);
-        for(int num : numbers){
-            List<Integer> tmp = new ArrayList<>();
-            for(int parent : leaves){
-                tmp.add(parent + num);
-                tmp.add(parent - num);
-            }
-            leaves = tmp;
-        }
-        for(int leaf : leaves){
-            if(leaf==target) answer ++;
-        }
-        return answer;
+        return dfs(numbers, target,0);
     }
 }
