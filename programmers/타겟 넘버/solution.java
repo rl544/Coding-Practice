@@ -3,7 +3,7 @@
 import java.util.List;
 import java.util.ArrayList;
 class Solution {
-    
+    //BFS
     public int solution(int[] numbers, int target) {
         int answer = 0;
         List<Integer> leaves = List.of(0);
