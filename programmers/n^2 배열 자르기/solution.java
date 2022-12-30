@@ -1,6 +1,5 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/87390
 
-import java.util.Arrays;
 class Solution {
     public long[] solution(int n, long left, long right) {
         long k = left/n, l = left%n, kn = (right)/n, ln = (right)%n;
