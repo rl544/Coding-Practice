@@ -17,44 +17,12 @@ class Solution {
     }
     public class Comp implements Comparator<String> {
         public int compare(String a, String b) {
-            int temp = 0, end = Math.min(a.length(),b.length())-1;
-            int l = Integer.parseInt(a+b), r = Integer.parseInt(b+a);
-            while(true){
-                if(a.charAt(temp) < b.charAt(temp)) return 1;
-                else if(a.charAt(temp) > b.charAt(temp)) return -1;
-                if(temp < end) temp++;
-                else break;
-            } // 이거 통과헸다는 것은 동일 길이까지 전부 같다는 것.
-            if(a.length()==b.length()) return 0; // 이건 0 0 0 0 대비
-            if(a.length()>b.length()){
-                int tt = end+1, te = b.length(), mm = a.length();
-                // System.out.println(a+" "+b);
-                while(true){
-                    if(a.charAt(tt)>b.charAt(tt%te)) return -1;
-                    else if (a.charAt(tt)==b.charAt(tt%te)) {
-                        if(tt >= mm-1){
-                            if(l>r) return -1;
-                            else return 1;
-                        }
-                        else tt++;
-                    }
-                    else return 1; 
-                }
-                
-            } else {
-                int tt = end+1, te = a.length(), mm = b.length();
-                while(true){
-                    if(b.charAt(tt)>a.charAt(tt%te)) return 1;
-                    else if (b.charAt(tt)==a.charAt(tt%te)) {
-                        if(tt >= mm-1) {
-                            if(l<r) return 1;
-                            else return -1;
-                        }
-                        else tt++;
-                    }
-                    else return -1; 
-                }
-            }
+            // int l, r;
+            if(a.equals("0")&&b.equals("0")) return 0;
+            
+            int l = Integer.valueOf((a.charAt(0)=='0')?b:a+b), r = Integer.valueOf((b.charAt(0)=='0')?a:b+a);
+            if(l>r) return -1;
+            else return 1;
         }
     }
 }
