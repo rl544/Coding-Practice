@@ -21,16 +21,13 @@ class Solution {
                             tmp = del;
                             if(dm<x) dm = x-1;
                         }
-                        else {
-                            tmp = del; //작을때
-                        }
+                        else tmp = del; //작을때
                         deliveries[x] -= tmp;
                         delCap += tmp;
                     }
                 }
                 if(delCap == cap) break;
             }
-			
             for(int x = lm2; x>=0; x--){
                 int pic = pickups[x];
                 if(pic == 0) continue;
@@ -45,9 +42,7 @@ class Solution {
                             tmp = pic;
                             if(pm<x) pm = x-1;
                         }
-                        else {
-                            tmp = pic; //작을때
-                        }
+                        else tmp = pic; //작을때
                         pickups[x] -= tmp;
                         pickCap += tmp;
                     }
