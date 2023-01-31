@@ -12,7 +12,7 @@ class Solution {
         while(cnt<max){
             switch(state){
                 case 0: for(a++; a < n-f; a++) job(al,a,b,cnt++); a--; f++; state++; break;
-                case 1: for(b = f; b < n-2*(f-1); b++) job(al,a,b,cnt++); b--; state++; break;
+                case 1: for(b++; b < n-2*(f-1); b++) job(al,a,b,cnt++); b--; state++; break;
                 case 2: for(a--,b--; b >= f; a--,b--) job(al,a,b,cnt++); a++;b++; state = 0; break;
             }
         } // for(int d = 0; d < n; d++) System.out.println(Arrays.toString(al.get(d)));
