@@ -38,15 +38,9 @@ class Solution {
         int myPos = 0;
         if(mmlen>len) return false;
         if(len >= alen) {
-            //System.out.println(mmlen/alen);
-            for(int a = 0; a <= len/alen ; a++) { //mmlen/alen
-                sb.append(me); 
-                //System.out.println(a+" append");
-            }
+            for(int a = 0; a <= len/alen ; a++) sb.append(me); 
             len -= alen*(len/alen);
         }
-        // if(len < alen){
-        //System.out.println(len);
         for(int a = 0; a < slen; a++){
             if(me.charAt(a) != '#') myPos++;
             if(myPos>=len) {
@@ -55,16 +49,9 @@ class Solution {
                 break;
             }
         }
-        if(myPos>0)sb.append(me);
-        // }
-        
         String temp = sb.toString();
         int firstChk = temp.indexOf(m), ar1Len = m.length();
-        //System.out.println(sb+" "+firstChk+" "+ar1Len);
-        if(firstChk + ar1Len == temp.length() || temp.matches(".*"+m+"[^\\#].*")) {
-            //System.out.println("matched");
-            return true;
-        }
+        if(firstChk + ar1Len == temp.length() || temp.matches(".*"+m+"[^\\#].*")) return true;
         return false;
     }
 }
