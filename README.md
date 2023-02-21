@@ -1,2 +1,2 @@
-# Coding-Practice-B-
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# Coding-Practice
+This repository is my practice notes.
